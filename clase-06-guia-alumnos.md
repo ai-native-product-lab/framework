@@ -130,14 +130,20 @@ Completen:
 
 Primero organicen los materiales originales. Incluyan tanto las señales favorables como las contrarias.
 
-Usen esta tabla:
+Usen esta tabla. No todas las evidencias permiten sostener la misma conclusión.
 
-| Tipo de evidencia | Dato u observación original | Fuente | ¿Cómo se registró? | Limitación conocida |
-|---|---|---|---|---|
-| Cuantitativa |  |  |  |  |
-| Cualitativa |  |  |  |  |
-| Error o anomalía |  |  |  |  |
-| Resultado contrario |  |  |  |  |
+| Evidencia original | Naturaleza | Fuente | Qué puede demostrar | Qué no puede demostrar | Limitación |
+|---|---|---|---|---|---|
+|  | Técnica real / técnica simulada / primaria cualitativa / primaria conductual / secundaria / dato simulado |  |  |  |  |
+
+## Orientación para clasificar la evidencia
+
+| Evidencia | Naturaleza posible | Puede demostrar | No puede demostrar por sí sola |
+|---|---|---|---|
+| Prueba automatizada | Técnica simulada | Funcionamiento del recorrido probado | Comprensión o comportamiento humano |
+| Entrevista | Primaria cualitativa | Experiencias y comportamientos relatados | Prevalencia en una población |
+| Analítica de uso | Primaria conductual | Acciones registradas | Motivación o causalidad |
+| Dataset ficticio | Dato simulado | Lógica inicial del modelo | Desempeño con datos reales |
 
 ## Prompt sugerido
 
@@ -153,8 +159,9 @@ Organizalos en cuatro grupos:
 4. Resultados que parecen contradecirla.
 
 Para cada elemento, conservá la fuente y separá el dato original de
-cualquier interpretación. No completes datos faltantes, no elimines
-resultados contrarios y no tomes una decisión por nosotros.
+cualquier interpretación. Indicá su naturaleza y explicitá qué puede y qué
+no puede demostrar. No completes datos faltantes, no elimines resultados
+contrarios y no tomes una decisión por nosotros.
 
 Contrato experimental:
 [PEGAR]
@@ -207,6 +214,28 @@ Después completen:
 | **Inconclusa** | Los datos, el instrumento, la muestra o la ejecución no permiten comparar de manera válida. |
 
 > Ninguno de estos estados demuestra o descarta definitivamente el problema completo ni toda una solución.
+
+## Si el estado es inconclusa
+
+Elijan un motivo principal. Si existe más de uno, registren los secundarios en observaciones.
+
+~~~markdown
+- Estado de la hipótesis: inconclusa
+- Motivo principal: ejecución incompleta / falla del instrumento /
+  medición inválida / muestra o contexto inadecuados / datos insuficientes /
+  otro explicado por el equipo
+~~~
+
+| Motivo principal | Acción probable |
+|---|---|
+| Ejecución incompleta | Completar la ejecución |
+| Falla del instrumento | Corregir |
+| Muestra, canal o contexto inadecuados | Iterar |
+| Medición inválida | Revisar el contrato y documentar la limitación |
+| Datos insuficientes tras ejecutar | Diseñar una prueba que produzca evidencia interpretable |
+| Evidencia válida que cuestiona la hipótesis | Pivotar o actualizar el Canvas |
+
+La tabla orienta la discusión. No toma la decisión por el equipo.
 
 ---
 
@@ -309,10 +338,13 @@ Elijan una decisión respecto del experimento real. No elijan la alternativa má
 | Decisión | Cuándo corresponde | Qué se conserva | Qué cambia |
 |---|---|---|---|
 | **Avanzar** | La evidencia alcanza para pasar a la siguiente incertidumbre. | Aprendizaje y problema. | Pregunta de aprendizaje prioritaria. |
+| **Completar la ejecución** | El contrato y el instrumento siguen vigentes, pero todavía no se alcanzó la regla de finalización o la cantidad acordada de casos. | Hipótesis, métrica, criterio e instrumento. | Reclutamiento, agenda o continuidad operativa. |
 | **Corregir** | Falló el instrumento, la instrucción o la medición. | Problema, hipótesis y criterio. | Instrumento. |
 | **Iterar** | La evidencia es insuficiente por muestra, canal o contexto. | Problema e hipótesis. | Método, muestra, canal o contexto. |
 | **Pivotar** | La evidencia válida cuestiona una hipótesis, mecanismo, solución, segmento o actor. | Lo que la evidencia respalda. | La hipótesis cuestionada. |
 | **Actualizar el Canvas** | Varias pruebas cuestionan el problema o el equipo no puede abordarlo en el alcance actual. | Historial y evidencia. | Segmento, formulación, oportunidad o alcance. |
+
+> **Completar una prueba que todavía no alcanzó su regla de finalización no es necesariamente iterar. Iterar implica cambiar muestra, canal, contexto o método para producir evidencia diferente.**
 
 Completen:
 
@@ -320,7 +352,8 @@ Completen:
 ## 4. Decisión sobre el experimento real
 
 - Estado de la hipótesis: respaldada, no respaldada o inconclusa:
-- Decisión: avanzar, corregir, iterar, pivotar o actualizar el Canvas:
+- Motivo de inconclusa, si corresponde:
+- Decisión: avanzar, completar la ejecución, corregir, iterar, pivotar o actualizar el Canvas:
 - Evidencia principal que la fundamenta:
 - Limitación que debemos conservar visible:
 - Qué conservamos:
@@ -411,7 +444,12 @@ Elijan una ruta alternativa y completen:
 - Decisión del equipo y justificación:
 ~~~
 
-La ruta Pivot 01 será el punto de partida de diseño para la Clase 7. Sigue siendo una hipótesis: no se presenta como una solución ya validada.
+La rama Pivot 01 no reemplaza automáticamente la ruta principal. Conserven ambas:
+
+- **Ruta principal:** decisión surgida de la evidencia del experimento real.
+- **Rama Pivot 01:** alternativa creada como simulación pedagógica.
+
+Antes de la Clase 7 elegirán cuál diseñar y dejarán visible si esa elección se basa en evidencia real o en exploración pedagógica.
 
 ---
 
@@ -427,6 +465,11 @@ Completen:
 ~~~markdown
 ## 6. Punto de partida para diseñar
 
+- Ruta principal basada en evidencia:
+- Rama Pivot 01 simulada:
+- Ruta elegida para Clase 7:
+- Naturaleza de la elección: basada en evidencia / exploración pedagógica:
+- Justificación:
 - Problema que conservamos:
 - Usuario o actor sobre el que podemos intervenir:
 - Evidencia más fuerte:
@@ -442,7 +485,7 @@ Completen:
 |---|---|
 | Evidencia suficiente | Diseña una propuesta de valor, User Journey y MVP con foco en entregar valor y observar uso. |
 | Evidencia parcial | Diseña una propuesta de valor condicional y un MVP que permita también resolver el supuesto crítico. |
-| Pivot 01 | Diseña la ruta alternativa como hipótesis, con su medición incorporada. |
+| Elige explorar Pivot 01 | Diseña la ruta alternativa como hipótesis, con su medición incorporada y la elección identificada como exploración pedagógica. |
 
 > **Ningún equipo queda detenido. Pero ningún equipo puede presentar como validado lo que todavía es un supuesto.**
 
@@ -462,18 +505,20 @@ El archivo **informe-aprendizaje-decision.md** debe contener:
 5. Limitaciones y explicaciones alternativas.
 6. Decisión fundamentada sobre el experimento real.
 7. Pivot 01 claramente identificado como simulación pedagógica.
-8. Punto de partida para diseñar en la Clase 7.
+8. Ruta principal, rama Pivot 01 y elección explícita para Clase 7.
 
 ## Checklist final
 
 - [ ] Conservamos los resultados originales, incluso los incómodos.
 - [ ] No modificamos la métrica ni el criterio después de probar.
+- [ ] Indicamos la naturaleza, el alcance y las limitaciones de cada evidencia.
 - [ ] Distinguimos hechos, interpretaciones, supuestos y decisiones.
 - [ ] No presentamos datos simulados como datos reales.
 - [ ] Explicamos las limitaciones de nuestra prueba.
 - [ ] La decisión sobre el experimento real está fundamentada.
 - [ ] El Pivot 01 no borra ni falsifica la evidencia anterior.
 - [ ] Identificamos qué cambia y qué se conserva en el pivot.
+- [ ] La ruta elegida para Clase 7 está justificada y su naturaleza es explícita.
 - [ ] Sabemos desde qué evidencia diseñaremos la solución.
 - [ ] Guardamos el informe en el repositorio del equipo.
 
